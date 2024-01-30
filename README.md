@@ -24,6 +24,7 @@
 
 #### 介绍
 简单的每日一言API  
+![](https://www.sunzishaokao.com/wp-content/uploads/2024/01/20240131005421418-C3974D21-A954-4516-8015-4C463337E78E.png)
 >查看[Demo](https://sunzishaokao.com/plugin/quote/ "Demo")
 
 #### 使用说明

@@ -24,7 +24,7 @@
 
 #### Introduction
 A straightforward Daily Quote API
-
+![](https://www.sunzishaokao.com/wp-content/uploads/2024/01/20240131005421418-C3974D21-A954-4516-8015-4C463337E78E.png)
 #### Usage Instructions
 1. Download our latest compiled program according to your system from [Gitee-Releases](https://gitee.com/szsk/kms/releases "Releases").
 2. Enter your IP:8080 in a web browser to access the API.
