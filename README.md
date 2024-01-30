@@ -23,7 +23,8 @@
 </p>
 
 #### 介绍
-简单的每日一言API
+简单的每日一言API  
+>查看[Demo](https://yy.sunzishaokao.com "Demo")
 
 #### 使用说明
 1. 根据系统，下载我们最新编译的程序[Gitee-Releases](https://gitee.com/szsk/kms/releases "Releases")
