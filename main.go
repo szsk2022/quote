@@ -1,16 +1,42 @@
 package main
 
 import (
+	"fmt"
 	"io/ioutil"
 	"math/rand"
 	"net/http"
+	"os"
 	"strings"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
+	fmt.Println("欢迎使用SZSK—QuoteAPI")
+	fmt.Println("官方网址：https://www.sunzishaokao.com")
+	fmt.Println("Ver:1.0.0")
+
+	// 根据环境变量设置 Gin 运行模式
+	ginMode := os.Getenv("GIN_MODE")
+	gin.SetMode(ginMode)
+
+	// 如果环境变量未设置或无效，则默认设置为 Release 模式
+	if gin.Mode() != gin.ReleaseMode {
+		gin.SetMode(gin.ReleaseMode)
+	}
+
 	r := gin.Default()
+
+	// CORS配置
+	corsConfig := cors.DefaultConfig()
+	corsConfig.AllowAllOrigins = true                                                               // 允许所有源（仅用于开发环境，请在生产环境中指定具体的允许域名）
+	corsConfig.AllowMethods = []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"}                   // 允许的方法
+	corsConfig.AllowHeaders = []string{"Origin", "Content-Length", "Content-Type", "Authorization"} // 允许的头信息
+	corsConfig.AllowCredentials = true                                                              // 允许携带凭据（如cookies）
+
+	// 添加CORS中间件
+	r.Use(cors.New(corsConfig))
 
 	r.GET("/", getRandomQuote)
 	r.POST("/", getRandomQuote)
