@@ -1,56 +1,79 @@
-<h1 align="center">SZSK - Daily Quote API</h1>
-<p align="center">A simple Daily Quote API program</p>
+<h1 align="center">SZSK-KMS Activation Tool</h1>
+<p align="center">A free, simple, fast  KMS activation tool written in Go language.</p>
 
 <p align="center">
-<a href="./README.md">Chinese Introduction</a> |
+<a href="./README.md">Introduction</a> |
 <a href="./README.en.md">English Description</a> 
 </p>
 
 <p align="center"> 
-<img src="https://img.shields.io/badge/Author-Grandson BBQ-orange.svg" title="Author: Grandson BBQ">
-<img src="https://img.shields.io/badge/Go-1.21.6-brightgreen.svg" title="Go">
-<img src="https://img.shields.io/badge/version-v1.0-brightgreen.svg" title="Version: v1.0">
-<img src="https://img.shields.io/badge/GPL-3.0-brightgreen.svg" title="GPL-3.0 License">
-<img src="https://gitee.com/szsk/yiyan/badge/star.svg?theme=dark" title="Star Count">  
-<img src="https://gitee.com/szsk/yiyan/badge/fork.svg?theme=dark" title="Fork Count">  
+<img src="https://img.shields.io/badge/Author-SZSK-orange.svg" title="Author: SZSK">
+<img src="https://img.shields.io/badge/Go-1.21.6-brightgreen.svg" title="Go" />
+<img src="https://img.shields.io/badge/version-v2.0-brightgreen.svg" title="Version: v1.0">
+<img src="https://img.shields.io/badge/GPL-3.0-brightgreen.svg" title="GPL-3.0">
+<img src="https://gitee.com/szsk/kms/badge/star.svg?theme=dark" title="Star Count">  
+<img src="https://gitee.com/szsk/kms/badge/fork.svg?theme=dark" title="Fork Count">  
 
 <p align="center">
-<a href="https://www.sunzishaokao.com/">Official Website</a> 
+<a href="https://www.sunzishaokao.com/">Official Website</a> | 
+<a href="http://www.sunzishaokao.com/plugin/kms">Get the bat script</a>
 </p>
 
-<p align="center">Source Code Repositories:<a href="https://gitee.com/szsk/yiyan">Gitee</a> | 
-<a href="https://github.com/szsk2022/yiyan">GitHub</a>
+<p align="center">Source Code: <a href="https://gitee.com/szsk/kms">Gitee</a> | 
+<a href="https://github.com/szsk2022/kms">GitHub</a>
 </p>
 
 #### Introduction
-A straightforward Daily Quote API
+The KMS activation tool is written in Go language
+![](https://www.sunzishaokao.com/wp-content/uploads/2024/01/20240128192106757-8AF796CD-4250-4e69-837D-3FDDDAC3B446.png)
+#### Usage instructions
+1. Download the latest compiled program from [Gitee-Releases](https://gitee.com/szsk/kms/releases "Releases")
+2. Simply run the program, and it will automatically detect the system version and activate it
 
-#### Usage Instructions
-1. Download our latest compiled program according to your system from [Gitee-Releases](https://gitee.com/szsk/kms/releases "Releases").
-2. Enter your IP:8080 in a web browser to access the API.
+>Tips：Activating output garbled characters is a normal situation, waiting for further repair
 
-Request parameters:  
-1. `/?lang=cn` requests a Chinese quote  
-2. `/?lang=en` requests an English quote
-
->Tips:  
->1. If no request parameter is provided, it defaults to requesting a Chinese quote by default.  
->2. There are 100 preloaded quotes each for both English and Chinese; you can add or remove them as needed in the Public directory!
-
-How to embed into a webpage? → <a href="./HTML.en.md">HTML Integration Guide for SZSK Daily Quote API</a> 
-
-#### Compilation Instructions
+#### Supported system versions
+* Windows 11 Pro
+* Windows 11 Enterprise  
+* Windows 11 Education
+* Windows 10 Pro
+* Windows 10 Enterprise
+* Windows 10 Education
+* Windows 10 Enterprise 2015 LTSB
+* Windows 10 Enterprise 2016 LTSB
+* Windows 10 Enterprise 2019 LTSC
+* Windows 10 Enterprise 2021 LTSC
+* Windows 8.1 Pro
+* Windows 8.1 Enterprise
+* Windows 7 Pro
+* Windows 7 Enterprise
+* Windows Vista Business
+* Windows Vista Enterprise
+* Windows Server 2022 Standard
+* Windows Server 2022 Datacenter
+* Windows Server 2019 Standard
+* Windows Server 2019 Datacenter
+* Windows Server 2016 Standard
+* Windows Server 2016 Datacenter
+* Windows Server 2012 R2 Server Standard
+* Windows Server 2012 R2 Datacenter
+* Windows Server 2008 R2 Standard
+* Windows Server 2008 R2 Datacenter
+* Windows Server 2008 R2 Enterprise
+#### Compilation instructions
 1. Clone the source code to your local machine  
 ```
-git clone https://gitee.com/szsk/yiyan.git
-````
-2. Navigate to the project root directory and compile the source code  
+git clone https://gitee.com/szsk/kms.git
+```
+2. Open `main.go` and search for `kms.sunzishaokao.com` within the file, replace it with your own KMS server address
+3. Compile the source code  
 ```
 go build
 ```
 
-#### Contributing
+#### Contribution instructions
+
 1. Fork this repository
-2. Create a new branch named `Feat_xxx`
-3. Commit your changes
-4. Open a new Pull Request
+2. Create a new branch named Feat_xxx
+3. Commit your code
+4. Create a Pull Request
