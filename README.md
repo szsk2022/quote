@@ -40,11 +40,6 @@
 
 如何嵌入到网页？→<a href="./HTML.md">HTML调用SZSK一言API</a> 
 
-
-#### 效果展示
-<script src="https://www.sunzishaokao.com/cdn/yy.js"></script>
-<div id="quote">正在加载...</div>
-
 #### 编译说明
 1. 将源代码克隆到本地  
 ```
