@@ -24,7 +24,7 @@
 
 #### 介绍
 简单的每日一言API  
->查看[Demo](https://yy.sunzishaokao.com "Demo")
+>查看[Demo](https://sunzishaokao.com/plugin/quote/ "Demo")
 
 #### 使用说明
 1. 根据系统，下载我们最新编译的程序[Gitee-Releases](https://gitee.com/szsk/kms/releases "Releases")
@@ -39,11 +39,6 @@
 >2. 程序内英文一言和中文一言各内置100条，您可在Public目录按需添加或删减一言！
 
 如何嵌入到网页？→<a href="./HTML.md">HTML调用SZSK一言API</a> 
-
-
-#### 效果展示
-<script src="https://www.sunzishaokao.com/cdn/yy.js"></script>
-<div id="quote">正在加载...</div>
 
 #### 编译说明
 1. 将源代码克隆到本地  

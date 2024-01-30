@@ -25,3 +25,12 @@
 ```html
 <div id="quote">正在加载...</div>
 ```
+
+### 使用官网版API  
+>每隔5s自动刷新
+
+```html
+  <script src="https://www.sunzishaokao.com/cdn/yy.js"></script>
+  <link rel="stylesheet" href="https://www.sunzishaokao.com/cdn/yy.css"> // 按需添加
+  <div id="quote">正在加载...</div>
+'''

@@ -41,7 +41,8 @@ func main() {
 	r.GET("/", getRandomQuote)
 	r.POST("/", getRandomQuote)
 
-	r.Static("/public", "./public") // 假设quotes_txt文件在public文件夹下
+	r.Static("/public", "./public")
+	//r.StaticFile("/favicon.ico", "./favicon.ico") // cdn探测，负载均衡使用
 
 	r.Run(":8080")
 }
