@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <h1 align="center">SZSK—每日一言API</h1>
 <p align="center">简单的每日一言API程序</p>
 

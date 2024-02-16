@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <h1 align="center">SZSK - Daily Quote API</h1>
 <p align="center">A simple Daily Quote API program</p>
 
