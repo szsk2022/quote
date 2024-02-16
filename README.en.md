@@ -9,7 +9,7 @@
 <p align="center"> 
 <img src="https://img.shields.io/badge/Author-Grandson BBQ-orange.svg" title="Author: Grandson BBQ">
 <img src="https://img.shields.io/badge/Go-1.21.6-brightgreen.svg" title="Go">
-<img src="https://img.shields.io/badge/version-v1.0-brightgreen.svg" title="Version: v1.0">
+<img src="https://img.shields.io/badge/version-v1.1-brightgreen.svg" title="Version: v1.0">
 <img src="https://img.shields.io/badge/GPL-3.0-brightgreen.svg" title="GPL-3.0 License">
 <img src="https://gitee.com/szsk/yiyan/badge/star.svg?theme=dark" title="Star Count">  
 <img src="https://gitee.com/szsk/yiyan/badge/fork.svg?theme=dark" title="Fork Count">  
@@ -27,7 +27,8 @@ A straightforward Daily Quote API
 ![](https://www.sunzishaokao.com/wp-content/uploads/2024/01/20240131005421418-C3974D21-A954-4516-8015-4C463337E78E.png)
 #### Usage Instructions
 1. Download our latest compiled program according to your system from [Gitee-Releases](https://gitee.com/szsk/kms/releases "Releases").
-2. Enter your IP:8080 in a web browser to access the API.
+2. Edit the config.yaml configuration file according to your actual needs.
+3. Simply run ./yiyan to start the program!
 
 Request parameters:  
 1. `/?lang=cn` requests a Chinese quote  

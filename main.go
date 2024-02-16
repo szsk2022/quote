@@ -1,30 +1,38 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"math/rand"
 	"net/http"
-	"os"
 	"strings"
+	"yiyan/conf"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
+	"github.com/go-redis/redis/v8"
 )
 
+var rdb *redis.Client // 全局Redis客户端实例
+
+func init() {
+	rdb = redis.NewClient(&redis.Options{
+		Addr:     conf.C.Redis.Address,  // Redis服务器地址和端口
+		Password: conf.C.Redis.Password, // 如果设置了密码，请填写
+		DB:       conf.C.Redis.Database, // 数据库索引，默认是0
+	})
+
+	_, err := rdb.Ping(context.Background()).Result()
+	if err != nil {
+		log.Fatalf("连接Redis失败: %v", err)
+	}
+}
 func main() {
 	fmt.Println("欢迎使用SZSK—QuoteAPI")
 	fmt.Println("官方网址：https://www.sunzishaokao.com")
-	fmt.Println("Ver:1.0.0")
-
-	// 根据环境变量设置 Gin 运行模式
-	ginMode := os.Getenv("GIN_MODE")
-	gin.SetMode(ginMode)
-
-	// 如果环境变量未设置或无效，则默认设置为 Release 模式
-	if gin.Mode() != gin.ReleaseMode {
-		gin.SetMode(gin.ReleaseMode)
-	}
+	fmt.Println("Ver:1.1.0")
 
 	r := gin.Default()
 
@@ -44,25 +52,53 @@ func main() {
 	r.Static("/public", "./public")
 	//r.StaticFile("/favicon.ico", "./favicon.ico") // cdn探测，负载均衡使用
 
-	r.Run(":8080")
+	err := r.Run(conf.C.Web.Address)
+	if err != nil {
+		log.Fatalf("Run Serve err: " + err.Error())
+		return
+	}
 }
 
 func getRandomQuote(c *gin.Context) {
 	lang := c.Query("lang") // 获取请求中的lang参数，默认为空字符串
 	var content []byte
-	var err error
+	var cacheKey string
 
 	switch lang {
 	case "en":
-		content, err = ioutil.ReadFile("public/quotes_en.txt") // 请确保此路径正确指向英文一言文件
+		cacheKey = "quotes_en"
 	case "cn":
-		fallthrough // 如果没有提供lang参数或者参数是"cn"，则默认读取中文一言文件
+		fallthrough
 	default:
-		content, err = ioutil.ReadFile("public/quotes_cn.txt")
+		cacheKey = "quotes_cn"
 	}
 
-	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"Error": "无法读取一言文件"})
+	content, err := rdb.Get(context.Background(), cacheKey).Bytes()
+	if err == redis.Nil { // 缓存未命中
+		var fileContent []byte
+		switch lang {
+		case "en":
+			fileContent, err = ioutil.ReadFile("public/quotes_en.txt")
+		case "cn":
+			fallthrough
+		default:
+			fileContent, err = ioutil.ReadFile("public/quotes_cn.txt")
+		}
+
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"Error": "无法读取一言文件"})
+			return
+		}
+
+		err = rdb.Set(context.Background(), cacheKey, fileContent, 0).Err() // 设置永不过期
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"Error": "缓存写入失败"})
+			return
+		}
+
+		content = fileContent
+	} else if err != nil { // 其他Redis错误
+		c.JSON(http.StatusInternalServerError, gin.H{"Error": "获取缓存时出错"})
 		return
 	}
 

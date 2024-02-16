@@ -9,7 +9,7 @@
 <p align="center"> 
 <img src="https://img.shields.io/badge/Author-孙子烧烤-orange.svg" title="Author: 孙子烧烤">
 <img src="https://img.shields.io/badge/Go-1.21.6-brightgreen.svg" title="Go" />
-<img src="https://img.shields.io/badge/version-v1.0-brightgreen.svg" title="Version: v1.0">
+<img src="https://img.shields.io/badge/version-v1.1-brightgreen.svg" title="Version: v1.0">
 <img src="https://img.shields.io/badge/GPL-3.0-brightgreen.svg" title="GPL-3.0">
 <img src="https://gitee.com/szsk/yiyan/badge/star.svg?theme=dark" title="Star Count">  
 <img src="https://gitee.com/szsk/yiyan/badge/fork.svg?theme=dark" title="Fork Count">  
@@ -29,7 +29,8 @@
 
 #### 使用说明
 1. 根据系统，下载我们最新编译的程序[Gitee-Releases](https://gitee.com/szsk/kms/releases "Releases")
-2. 浏览器输入你的IP:8080即可请求API
+2. 根据实际情况编辑config.yaml配置文件
+3. ./yiyan即可启动！
 
 请求参数：  
 1. `/?lang=cn` 请求中文一言  
