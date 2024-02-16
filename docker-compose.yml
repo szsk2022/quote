@@ -1,0 +1,14 @@
+version: '3'
+services:
+  app:
+    image: szsk968/yiyan:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./config.yaml:/app/config.yaml
+      - ./public/:/app/public/
+    depends_on:
+      - redis
+  redis:
+    container_name: custom_redis
+    image: redis
