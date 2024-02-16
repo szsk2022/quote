@@ -1,17 +1,6 @@
-<<<<<<< HEAD
 web:
   address: :8080
 redis:
   address: custom_redis:6379
   passwd:
   database: 0
-
-=======
-web:
-  address: localhost:8080
-redis:
-  address: localhost:6379
-  passwd:
-  database: 0
-
->>>>>>> a949b6621bd86fd37b2a26dc90a64111db89ccc0
