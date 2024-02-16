@@ -32,7 +32,7 @@ func init() {
 func main() {
 	fmt.Println("欢迎使用SZSK—QuoteAPI")
 	fmt.Println("官方网址：https://www.sunzishaokao.com")
-	fmt.Println("Ver:1.0.0")
+	fmt.Println("Ver:1.1.0")
 
 	r := gin.Default()
 

@@ -1,0 +1,7 @@
+web:
+  address: localhost:8080
+redis:
+  address: localhost:6379
+  passwd:
+  database: 0
+
