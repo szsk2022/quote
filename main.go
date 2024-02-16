@@ -7,8 +7,8 @@ import (
 	"log"
 	"math/rand"
 	"net/http"
-	"os"
 	"strings"
+	"yiyan/conf"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -19,9 +19,9 @@ var rdb *redis.Client // 全局Redis客户端实例
 
 func init() {
 	rdb = redis.NewClient(&redis.Options{
-		Addr:     "localhost:6379", // Redis服务器地址和端口
-		Password: "",               // 如果设置了密码，请填写
-		DB:       0,                // 数据库索引，默认是0
+		Addr:     conf.C.Redis.Address,  // Redis服务器地址和端口
+		Password: conf.C.Redis.Password, // 如果设置了密码，请填写
+		DB:       conf.C.Redis.Database, // 数据库索引，默认是0
 	})
 
 	_, err := rdb.Ping(context.Background()).Result()
@@ -33,15 +33,6 @@ func main() {
 	fmt.Println("欢迎使用SZSK—QuoteAPI")
 	fmt.Println("官方网址：https://www.sunzishaokao.com")
 	fmt.Println("Ver:1.0.0")
-
-	// 根据环境变量设置 Gin 运行模式
-	ginMode := os.Getenv("GIN_MODE")
-	gin.SetMode(ginMode)
-
-	// 如果环境变量未设置或无效，则默认设置为 Release 模式
-	if gin.Mode() != gin.ReleaseMode {
-		gin.SetMode(gin.ReleaseMode)
-	}
 
 	r := gin.Default()
 
@@ -61,7 +52,11 @@ func main() {
 	r.Static("/public", "./public")
 	//r.StaticFile("/favicon.ico", "./favicon.ico") // cdn探测，负载均衡使用
 
-	r.Run(":8080")
+	err := r.Run(conf.C.Web.Address)
+	if err != nil {
+		log.Fatalf("Run Serve err: " + err.Error())
+		return
+	}
 }
 
 func getRandomQuote(c *gin.Context) {
