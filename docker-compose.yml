@@ -13,7 +13,7 @@ services:
     restart: always
 
   redis:
-    container_name: custom_redis
+    container_name: yiyan_redis
     image: redis
     command: ["redis-server"]
     restart: always
