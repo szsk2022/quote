@@ -1,6 +1,7 @@
 version: '3'
 services:
   app:
+    container_name: szsk_yiyan
     image: szsk968/yiyan:latest
     ports:
       - "8080:8080"
@@ -9,6 +10,7 @@ services:
       - ./public/:/app/public/
     depends_on:
       - redis
+    restart: always
 
   redis:
     container_name: custom_redis
