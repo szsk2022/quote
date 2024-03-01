@@ -9,6 +9,9 @@ services:
       - ./public/:/app/public/
     depends_on:
       - redis
+
   redis:
     container_name: custom_redis
     image: redis
+    command: ["redis-server"]
+    restart: always
