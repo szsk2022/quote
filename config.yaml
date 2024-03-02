@@ -1,6 +1,6 @@
 web:
   address: :8080
 redis:
-  address: custom_redis:6379
+  address: yiyan_redis:6379
   passwd:
   database: 0
